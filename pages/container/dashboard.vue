@@ -1,3 +1,45 @@
+<script setup>
+const items = [
+  {
+    logo: "thumbnails",
+    title: "Stacks",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna lliqua.",
+    to: "/container/containers",
+  },
+  {
+    logo: "list",
+    title: "Service",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    to: "#",
+  },
+  {
+    logo: "nut",
+    title: "Container",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    to: "/container/containers",
+  },
+  {
+    logo: "image",
+    title: "Images",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    to: "#",
+  },
+  {
+    logo: "database",
+    title: "Volumes",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    to: "#",
+  },
+  {
+    logo: "server",
+    title: "Networks",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    to: "#",
+  },
+];
+</script>
+
 <template>
   <div
     uk-grid
@@ -10,91 +52,19 @@
       uk-grid-match
     "
   >
-    <div>
-      <div class="uk-card uk-card-default uk-card-body">
-        <div uk-grid class="uk-grid-small uk-flex-middle">
-          <div class="uk-width-auto">
-            <span uk-icon="icon: thumbnails; ratio: 2"></span>
+    <div v-for="(item, index) in items" :key="index">
+      <div class="uk-card uk-card-default uk-card-body uk-card-hover">
+        <NuxtLink :to="item.to" class="uk-link-reset">
+          <div uk-grid class="uk-grid-small uk-flex-middle">
+            <div class="uk-width-auto">
+              <span :uk-icon="'icon: ' + item.logo + ';' + 'ratio: 2;'"></span>
+            </div>
+            <div class="uk-width-expand">
+              <h3 class="uk-card-title">{{ item.title }}</h3>
+            </div>
           </div>
-          <div class="uk-width-expand">
-            <h3 class="uk-card-title">Stacks</h3>
-          </div>
-        </div>
-        <p>
-          Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua.
-        </p>
-      </div>
-    </div>
-
-    <div>
-      <div class="uk-card uk-card-default uk-card-body">
-        <div uk-grid class="uk-grid-small uk-flex-middle">
-          <div class="uk-width-auto">
-            <span uk-icon="icon: list; ratio: 2"></span>
-          </div>
-          <div class="uk-width-expand">
-            <h3 class="uk-card-title">Service</h3>
-          </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </div>
-    </div>
-
-    <div>
-      <div class="uk-card uk-card-default uk-card-body">
-        <div uk-grid class="uk-grid-small uk-flex-middle">
-          <div class="uk-width-auto">
-            <span uk-icon="icon: nut; ratio: 2"></span>
-          </div>
-          <div class="uk-width-expand">
-            <h3 class="uk-card-title">Container</h3>
-          </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </div>
-    </div>
-
-    <div>
-      <div class="uk-card uk-card-default uk-card-body">
-        <div uk-grid class="uk-grid-small uk-flex-middle">
-          <div class="uk-width-auto">
-            <span uk-icon="icon: image; ratio: 2"></span>
-          </div>
-          <div class="uk-width-expand">
-            <h3 class="uk-card-title">Images</h3>
-          </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </div>
-    </div>
-
-    <div>
-      <div class="uk-card uk-card-default uk-card-body">
-        <div uk-grid class="uk-grid-small uk-flex-middle">
-          <div class="uk-width-auto">
-            <span uk-icon="icon: database; ratio: 2"></span>
-          </div>
-          <div class="uk-width-expand">
-            <h3 class="uk-card-title">Volumes</h3>
-          </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </div>
-    </div>
-
-    <div>
-      <div class="uk-card uk-card-default uk-card-body">
-        <div uk-grid class="uk-grid-small uk-flex-middle">
-          <div class="uk-width-auto">
-            <span uk-icon="icon: server; ratio: 2"></span>
-          </div>
-          <div class="uk-width-expand">
-            <h3 class="uk-card-title">Networks</h3>
-          </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </NuxtLink>
+        <p>{{ item.description }}</p>
       </div>
     </div>
   </div>
