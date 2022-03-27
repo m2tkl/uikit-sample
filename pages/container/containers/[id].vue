@@ -46,20 +46,22 @@
           <h3 class="uk-card-title">Container status</h3>
         </div>
         <div class="uk-card-body">
-          <form class="uk-form-horizontal">
-            <div>
+          <form class="uk-form-stacked uk-margin-large">
+            <div class="uk-margin">
               <label class="uk-form-label">ID</label>
               <div class="uk-form-controls">{{ $route.path }}</div>
             </div>
-            <hr>
             <div class="uk-margin">
               <label class="uk-form-label">Name</label>
               <div class="uk-form-controls">Hoge</div>
             </div>
-            <hr>
             <div class="uk-margin">
               <label class="uk-form-label">Status</label>
-              <div class="uk-form-controls">running</div>
+              <status-label status="running"></status-label>
+            </div>
+            <div class="uk-margin">
+              <label class="uk-form-label">Created</label>
+              <div class="uk-form-controls">2022-02-02</div>
             </div>
           </form>
         </div>
